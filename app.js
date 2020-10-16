@@ -6,6 +6,7 @@ const saturate = document.querySelector('#saturate');
 
 const img = document.querySelector('#image');
 const reset = document.querySelector('#reset');
+const imgUrl = document.querySelector('#img-url');
 
 const defaults = {
   grayscale: 0,
@@ -21,6 +22,7 @@ sepia.addEventListener('input', updateFilterValue);
 saturate.addEventListener('input', updateFilterValue);
 
 reset.addEventListener('click', resetFilterValue);
+imgUrl.addEventListener('change', updateImgUrl);
 
 function resetFilterValue() {
   grayscale.value = defaults.grayscale;
@@ -43,4 +45,9 @@ function updateFilterValue() {
     sepia(${sepia.value}%)
     saturate(${saturate.value}%)
   `;
+}
+function updateImgUrl() {
+  //console.log('image changed');
+  const imageUrl = imgUrl.value;
+  img.setAttribute('src', imageUrl);
 }
